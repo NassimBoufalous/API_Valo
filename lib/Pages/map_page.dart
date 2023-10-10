@@ -30,7 +30,7 @@ class _MapListPageState extends State<MapListPage> {
     fetchMapData();
   }
 
-  Future<void> fetchMapData() async {
+  void fetchMapData() async {
     final response = await http.get(
       Uri.parse('https://valorant-api.com/v1/maps'),
     );
