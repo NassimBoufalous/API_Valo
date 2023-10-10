@@ -2,19 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MapListPage(),
-    );
-  }
-}
-
 class MapData {
   final String name;
   final String imageUrl;
@@ -65,10 +52,10 @@ class _MapListPageState extends State<MapListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Noms des Maps Valorant'),
+        title: const Text('Noms des Maps Valorant'),
       ),
       body: mapDataList.isEmpty
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Column(
