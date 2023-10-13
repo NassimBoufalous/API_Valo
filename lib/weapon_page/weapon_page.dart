@@ -12,10 +12,11 @@ class WeaponPage extends GetView<WeaponController> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Armes',
+          "Armes",
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 20,
+            fontFamily: 'Valorant',
           ),
         ),
         centerTitle: true,
@@ -32,38 +33,14 @@ class WeaponPage extends GetView<WeaponController> {
               itemCount: controller.weapons.length,
               itemBuilder: (context, index) {
                 final weapons = controller.weapons[index];
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.network(
-                          weapons.displayIcon,
-                          height: 100, // Taille de l'icône
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          weapons.displayName,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                return ListTile(
+                  leading: Image.network(weapons.displayIcon),
+                  title: Text(
+                    weapons.displayName,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'Valorant',
                     ),
                   ),
                 );

@@ -1,8 +1,13 @@
+import 'package:app/agent_page/agent_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomNavigationBarExampleController extends GetxController {
   RxInt selectedIndex = 0.obs;
+
+  List<Widget> pages = [
+    const AgentPage(),
+  ];
 
   void onItemTapped(int index) {
     selectedIndex.value = index;

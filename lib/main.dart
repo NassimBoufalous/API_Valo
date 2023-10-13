@@ -1,3 +1,5 @@
+import 'package:app/agent_page/agent_bindings.dart';
+import 'package:app/agent_page/agent_page.dart';
 import 'package:app/home_page/home2_page.dart';
 import 'package:app/home_page/home_bindinds.dart';
 import 'package:app/home_page/home_page.dart';
@@ -9,13 +11,17 @@ import 'package:get/get.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      initialRoute: '/home_page',
       getPages: [
         GetPage(name: '/', page: () => const BottomNavigationBarExampleApp()),
         GetPage(
           name: '/weapon_page',
-          page: () => WeaponPage(),
+          page: () => const WeaponPage(),
           binding: WeaponBindings(),
+        ),
+        GetPage(
+          name: '/agent_page',
+          page: () => const AgentPage(),
+          binding: AgentBindings(),
         ),
       ],
     ),
@@ -28,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Valorant',
       getPages: [
         GetPage(
             name: '/home', page: () => const BottomNavigationBarExampleApp()),
@@ -59,6 +65,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/home_page',
+     
     );
   }
 }
