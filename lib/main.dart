@@ -5,6 +5,8 @@ import 'package:app/weapon_page/weapon_binding.dart';
 import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:app/Pages/map_bindinds.dart';
+import 'package:app/Pages/map_page.dart';
 
 void main() {
   runApp(
@@ -20,6 +22,11 @@ void main() {
           name: '/agent_page',
           page: () => const AgentPage(),
           binding: AgentBindings(),
+        ),
+        GetPage(
+          name: '/map_page',
+          page: () => const MapPage(),
+          binding: MapBindings(),
         ),
       ],
     ),
