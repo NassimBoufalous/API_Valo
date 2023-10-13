@@ -1,11 +1,30 @@
+import 'package:app/agent_page/agent_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomNavigationBarExampleController extends GetxController {
   RxInt selectedIndex = 0.obs;
 
+  List<Widget> pages = [
+    const AgentPage(),
+  ];
+
   void onItemTapped(int index) {
     selectedIndex.value = index;
+    switch (index) {
+      case 0:
+        Get.toNamed('/home');
+        break;
+      case 1:
+        Get.toNamed('/agent');
+        break;
+      case 2:
+        Get.toNamed('/map_page');
+        break;
+      case 3:
+        Get.toNamed('/weapon_page');
+        break;
+    }
   }
 }
 
@@ -16,60 +35,33 @@ class BottomNavigationBarExample extends StatelessWidget {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  // Déclarer ici vos widgets pour chaque onglet
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'VALORANT',
-      style: optionStyle,
-    ),
-    Text(
-      'AGENTS',
-      style: optionStyle,
-    ),
-    Text(
-      'MAP',
-      style: optionStyle,
-    ),
-    Text(
-      'ARMES',
-      style: optionStyle,
-    ),
-  ];
+  BottomNavigationBarExample({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(() {
-        return Center(
-          child: _widgetOptions.elementAt(controller.selectedIndex.value),
-        );
-      }),
-      bottomNavigationBar: Obx(() {
-        return BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/agent_icon.png')),
-              label: 'Agents',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.map),
-              label: 'Map',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/weapons_icon.png')),
-              label: 'Armes',
-            ),
-          ],
-          currentIndex: controller.selectedIndex.value,
-          selectedItemColor: Colors.orange,
-          unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
-          onTap: controller.onItemTapped,
-        );
-      }),
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage('assets/agent_icon.png')),
+          label: 'Agents',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.map),
+          label: 'Map',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage('assets/weapons_icon.png')),
+          label: 'Armes',
+        ),
+      ],
+      currentIndex: controller.selectedIndex.value,
+      selectedItemColor: Colors.orange,
+      unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
+      onTap: controller.onItemTapped,
     );
   }
 }

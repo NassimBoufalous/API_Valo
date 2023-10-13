@@ -1,17 +1,25 @@
 import 'package:app/agent_page/agent_controller.dart';
+import 'package:app/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AgentPage extends StatelessWidget {
-  final AgentController agentController = Get.find<AgentController>();
-
-  AgentPage({Key? key}) : super(key: key);
+class AgentPage extends GetView<AgentController> {
+  const AgentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Agents')),
+        title: const Center(
+          child: Text(
+            'Agents',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30,
+              fontFamily: 'Valorant',
+            ),
+          ),
+        ),
       ),
       body: GetBuilder<AgentController>(
         builder: (controller) {
@@ -24,16 +32,32 @@ class AgentPage extends StatelessWidget {
               itemCount: controller.agents.length,
               itemBuilder: (context, index) {
                 final agent = controller.agents[index];
-                return ListTile(
-                  leading: Image.network(agent.displayIcon),
-                  title: Text(agent.displayName),
-                  subtitle: Text(agent.description),
+                return Card(
+                  elevation: 4, // Ajouter une ombre à la carte
+                  margin: const EdgeInsets.all(8), // Marge autour de la carte
+                  child: ListTile(
+                    leading: Image.network(
+                      agent.displayIcon,
+                      width: 80,
+                      height: 80,
+                    ),
+                    title: Text(
+                      agent.displayName,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Valorant',
+                      ),
+                    ),
+                    subtitle: Text(agent.description),
+                  ),
                 );
               },
             );
           }
         },
       ),
+      bottomNavigationBar: BottomNavigationBarExample(),
     );
   }
 }
