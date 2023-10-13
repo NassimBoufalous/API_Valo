@@ -22,16 +22,15 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/home', page: () => const BottomNavigationBarExampleApp()),
         GetPage(
-          name: '/home2_page',
-          page: () => const Home2Page(),
-          binding: HomeBindings(),
-          title: 'Home2 Page',
-        ),
-        GetPage(
             name: '/map_page',
             page: () => const MapPage(),
             binding: MapBindings(),
             title: 'Map'),
+        GetPage(
+            name: '/weapon_page',
+            page: () => const WeaponPage(),
+            binding: WeaponBindings(),
+            title: 'Armes'),
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
