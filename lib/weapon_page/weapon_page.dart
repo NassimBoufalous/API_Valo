@@ -10,7 +10,16 @@ class WeaponPage extends GetView<WeaponController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Armes')),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Armes',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: GetBuilder<WeaponController>(
         builder: (controller) {
@@ -23,9 +32,40 @@ class WeaponPage extends GetView<WeaponController> {
               itemCount: controller.weapons.length,
               itemBuilder: (context, index) {
                 final weapons = controller.weapons[index];
-                return ListTile(
-                  leading: Image.network(weapons.displayIcon),
-                  title: Text(weapons.displayName),
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 3,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network(
+                          weapons.displayIcon,
+                          height: 100, // Taille de l'icÃ´ne
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          weapons.displayName,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
               },
             );
