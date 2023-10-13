@@ -6,6 +6,20 @@ class BottomNavigationBarExampleController extends GetxController {
 
   void onItemTapped(int index) {
     selectedIndex.value = index;
+    switch (index) {
+      case 0:
+        Get.toNamed('/home_page');
+        break;
+      case 1:
+        Get.toNamed('/agent_page');
+        break;
+      case 2:
+        Get.toNamed('/map_page');
+        break;
+      case 3:
+        Get.toNamed('/weapon_page');
+        break;
+    }
   }
 }
 
@@ -16,34 +30,11 @@ class BottomNavigationBarExample extends StatelessWidget {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  // Déclarer ici vos widgets pour chaque onglet
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'VALORANT',
-      style: optionStyle,
-    ),
-    Text(
-      'AGENTS',
-      style: optionStyle,
-    ),
-    Text(
-      'MAP',
-      style: optionStyle,
-    ),
-    Text(
-      'ARMES',
-      style: optionStyle,
-    ),
-  ];
+  BottomNavigationBarExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() {
-        return Center(
-          child: _widgetOptions.elementAt(controller.selectedIndex.value),
-        );
-      }),
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
