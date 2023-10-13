@@ -11,20 +11,6 @@ class BottomNavigationBarExampleController extends GetxController {
 
   void onItemTapped(int index) {
     selectedIndex.value = index;
-    switch (index) {
-      case 0:
-        Get.toNamed('/home');
-        break;
-      case 1:
-        Get.toNamed('/agent');
-        break;
-      case 2:
-        Get.toNamed('/map_page');
-        break;
-      case 3:
-        Get.toNamed('/weapon_page');
-        break;
-    }
   }
 }
 
