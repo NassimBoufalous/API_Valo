@@ -5,12 +5,19 @@ import 'package:get/get.dart';
 
 class MapPage extends GetView<MapController> {
   const MapPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Map')),
+        title: const Center(
+            child: Text(
+          'Map',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 30,
+            fontFamily: 'Valorant',
+          ),
+        )),
       ),
       body: GetBuilder<MapController>(
         builder: (controller) {
@@ -23,10 +30,29 @@ class MapPage extends GetView<MapController> {
               itemCount: controller.maps.length,
               itemBuilder: (context, index) {
                 final map = controller.maps[index];
-                return ListTile(
-                  leading: Image.network(map.splash),
-                  title: Text(map.displayName),
-                  subtitle: Text(map.narrativeDescription),
+                return Card(
+                  elevation: 4, // Ajouter une ombre à la carte
+                  margin: const EdgeInsets.all(8),
+                  child: ListTile(
+                    leading: Image.network(map.splash),
+                    title: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SplitPage()),
+                        );
+                      },
+                      child: Text(
+                        map.displayName,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Valorant',
+                        ),
+                      ),
+                    ),
+                    subtitle: Text(map.narrativeDescription),
+                  ),
                 );
               },
             );
@@ -37,3 +63,18 @@ class MapPage extends GetView<MapController> {
     );
   }
 }
+
+class SplitPage extends StatelessWidget {
+  const SplitPage({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Split'),
+      ),
+      body: const Center(
+        child: Text('This is the Split page'),
+      ),
+    );
+  }
+} 
