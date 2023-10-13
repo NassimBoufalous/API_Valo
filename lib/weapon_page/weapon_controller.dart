@@ -16,16 +16,15 @@ class WeaponController extends GetxController with StateMixin {
   Future<void> _fetchAgentData() async {
     try {
       final dio = Dio();
-      final response =
-          await dio.get('https://valorant-api.com/v1/weapons/?langage=fr-FR');
+      final response = await dio.get('https://valorant-api.com/v1/weapons');
 
       if (response.statusCode == 200) {
         final responseData = response.data;
         final List<Weapon> data =
             (responseData['data'] as List).map<Weapon>((item) {
           return Weapon(
-            displayIcon: item['displayIcon'],
-            displayName: item['displayName'],
+            displayName: item['displayName'] ?? "Sans nom",
+            displayIcon: item['displayIcon'] ?? "Sans icone",
           );
         }).toList();
 
