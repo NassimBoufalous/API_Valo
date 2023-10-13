@@ -1,4 +1,3 @@
-import 'package:app/weapon_page/weapon_page.dart';
 import 'package:app/widget.dart';
 import 'package:flutter/material.dart';
 
