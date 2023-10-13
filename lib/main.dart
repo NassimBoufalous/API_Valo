@@ -1,7 +1,5 @@
 import 'package:app/agent_page/agent_bindings.dart';
 import 'package:app/agent_page/agent_page.dart';
-import 'package:app/home_page/home2_page.dart';
-import 'package:app/home_page/home_bindinds.dart';
 import 'package:app/home_page/home_page.dart';
 import 'package:app/weapon_page/weapon_binding.dart';
 import 'package:app/weapon_page/weapon_page.dart';
@@ -35,16 +33,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Valorant',
-      getPages: [
-        GetPage(
-            name: '/home', page: () => const BottomNavigationBarExampleApp()),
-        GetPage(
-          name: '/home2_page',
-          page: () => const Home2Page(),
-          binding: HomeBindings(),
-          title: 'Home2 Page',
-        ),
-      ],
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -65,7 +53,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/home_page',
-     
     );
   }
 }

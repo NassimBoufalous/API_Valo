@@ -14,13 +14,22 @@ class WeaponPage extends GetView<WeaponController> {
         title: const Text(
           "Armes",
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
+            color: Colors.white, // Couleur du texte de la barre d'applications
+            fontSize: 24,
             fontFamily: 'Valorant',
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black, // Fond noir de la barre d'applications
+        elevation: 0, // Supprimer l'ombre sous la barre d'applications
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search, color: Colors.white),
+            onPressed: () {
+              // Ajoutez une action de recherche
+            },
+          ),
+        ],
       ),
       body: GetBuilder<WeaponController>(
         builder: (controller) {
@@ -29,22 +38,53 @@ class WeaponPage extends GetView<WeaponController> {
               child: CircularProgressIndicator(),
             );
           } else {
-            return ListView.builder(
-              itemCount: controller.weapons.length,
-              itemBuilder: (context, index) {
-                final weapons = controller.weapons[index];
-                return ListTile(
-                  leading: Image.network(weapons.displayIcon),
-                  title: Text(
-                    weapons.displayName,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Valorant',
+            return Container(
+              color:
+                  const Color.fromARGB(255, 0, 0, 0), // Fond gris du conteneur
+              child: ListView.builder(
+                itemCount: controller.weapons.length,
+                itemBuilder: (context, index) {
+                  final weapons = controller.weapons[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 118, 118, 118),
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(255, 0, 0, 0)
+                                .withOpacity(0.8),
+                            spreadRadius: 2,
+                            blurRadius: 3,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.network(
+                            weapons.displayIcon,
+                            height: 100,
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            weapons.displayName,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontFamily: 'Valorant',
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             );
           }
         },
