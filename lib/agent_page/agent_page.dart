@@ -36,17 +36,20 @@ class AgentPage extends GetView<AgentController> {
                   onTap: () {
                     Get.toNamed(
                       "/agent_details",
-                      arguments: {"agentName": agent.displayName},
+                      arguments: {"agent": agent},
                     );
                   },
                   child: Card(
                     elevation: 4, // Ajouter une ombre à la carte
                     margin: const EdgeInsets.all(8), // Marge autour de la carte
                     child: ListTile(
-                      leading: Image.network(
-                        agent.displayIcon,
-                        width: 80,
-                        height: 80,
+                      leading: Hero(
+                        tag: "iconAnim",
+                        child: Image.network(
+                          agent.displayIcon,
+                          width: 80,
+                          height: 80,
+                        ),
                       ),
                       title: Text(
                         agent.displayName,

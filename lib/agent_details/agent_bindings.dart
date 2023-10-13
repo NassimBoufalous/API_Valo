@@ -1,4 +1,4 @@
-import 'package:app/agent_details/agent_controller.dart';
+import 'package:app/agent_details/agent_details_controller.dart';
 import 'package:get/get.dart';
 
 class AgentDBindings extends Bindings {

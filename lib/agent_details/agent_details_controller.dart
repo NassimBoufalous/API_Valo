@@ -3,13 +3,13 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 class AgentDController extends GetxController with StateMixin {
-  String agentName = "Gekko";
+  late Agent agent;
 
   @override
   void onInit() {
     change(null, status: RxStatus.loading());
-    if (Get.arguments != null && Get.arguments.containsKey("agentName")) {
-      agentName = Get.arguments["agentName"];
+    if (Get.arguments != null && Get.arguments.containsKey("agent")) {
+      agent = Get.arguments["agent"];
     }
     change(null, status: RxStatus.success());
     super.onInit();
