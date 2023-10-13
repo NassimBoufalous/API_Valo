@@ -1,3 +1,4 @@
+import 'package:app/weapon_page/weapon_page.dart';
 import 'package:app/widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +10,19 @@ class BottomNavigationBarExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:
-          BottomNavigationBarExample(), // Utilisez BottomNavigationBarExample ici
+      home: BottomNavigationBarExample(),
+    );
+  }
+
+  void main() {
+    runApp(
+      MaterialApp(
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const BottomNavigationBarExampleApp(),
+          '/secondPage': (context) => WeaponPage(),
+        },
+      ),
     );
   }
 }
