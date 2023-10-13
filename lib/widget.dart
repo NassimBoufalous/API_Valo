@@ -1,8 +1,13 @@
+import 'package:app/agent_page/agent_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomNavigationBarExampleController extends GetxController {
   RxInt selectedIndex = 0.obs;
+
+  List<Widget> pages = [
+    const AgentPage(),
+  ];
 
   void onItemTapped(int index) {
     selectedIndex.value = index;
@@ -34,33 +39,29 @@ class BottomNavigationBarExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Obx(() {
-        return BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/agent_icon.png')),
-              label: 'Agents',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.map),
-              label: 'Map',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/weapons_icon.png')),
-              label: 'Armes',
-            ),
-          ],
-          currentIndex: controller.selectedIndex.value,
-          selectedItemColor: Colors.orange,
-          unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
-          onTap: controller.onItemTapped,
-        );
-      }),
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage('assets/agent_icon.png')),
+          label: 'Agents',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.map),
+          label: 'Map',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage('assets/weapons_icon.png')),
+          label: 'Armes',
+        ),
+      ],
+      currentIndex: controller.selectedIndex.value,
+      selectedItemColor: Colors.orange,
+      unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
+      onTap: controller.onItemTapped,
     );
   }
 }
