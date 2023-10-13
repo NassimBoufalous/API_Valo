@@ -1,4 +1,4 @@
-import 'package:app/Pages/map_bindinds.dart';
+import 'package:app/map_page/map_bindinds.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 

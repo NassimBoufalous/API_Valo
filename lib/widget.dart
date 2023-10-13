@@ -1,4 +1,4 @@
-import 'package:app/Pages/map_page.dart';
+import 'package:app/map_page/map_page.dart';
 import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

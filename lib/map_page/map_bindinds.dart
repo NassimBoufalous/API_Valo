@@ -1,4 +1,4 @@
-import 'package:app/Pages/map_controller.dart';
+import 'package:app/map_page/map_controller.dart';
 import 'package:get/get.dart';
 
 class MapBindings extends Bindings {
