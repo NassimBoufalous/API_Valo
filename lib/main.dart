@@ -1,17 +1,30 @@
 import 'package:app/home_page/home2_page.dart';
 import 'package:app/home_page/home_bindinds.dart';
 import 'package:app/home_page/home_page.dart';
+import 'package:app/weapon_page/weapon_binding.dart';
+import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    GetMaterialApp(
+      initialRoute: '/home_page',
+      getPages: [
+        GetPage(name: '/', page: () => const BottomNavigationBarExampleApp()),
+        GetPage(
+          name: '/weapon_page',
+          page: () => WeaponPage(),
+          binding: WeaponBindings(),
+        ),
+      ],
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

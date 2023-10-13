@@ -13,10 +13,10 @@ class BottomNavigationBarExampleController extends GetxController {
     selectedIndex.value = index;
     switch (index) {
       case 0:
-        Get.toNamed('/home');
+        Get.toNamed('/home_page');
         break;
       case 1:
-        Get.toNamed('/agent');
+        Get.toNamed('/agent_page');
         break;
       case 2:
         Get.toNamed('/map_page');
