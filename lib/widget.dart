@@ -1,4 +1,5 @@
-import 'package:app/agent_page/agent_page.dart';
+import 'package:app/Pages/map_page.dart';
+import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,17 +7,18 @@ class BottomNavigationBarExampleController extends GetxController {
   RxInt selectedIndex = 0.obs;
 
   List<Widget> pages = [
-    const AgentPage(),
+    const MapPage(),
+    const WeaponPage(),
   ];
 
   void onItemTapped(int index) {
     selectedIndex.value = index;
     switch (index) {
       case 0:
-        Get.toNamed('/home_page');
+        Get.toNamed('/home');
         break;
       case 1:
-        Get.toNamed('/agent_page');
+        Get.toNamed('/agent');
         break;
       case 2:
         Get.toNamed('/map_page');
