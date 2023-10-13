@@ -1,4 +1,6 @@
+import 'package:app/Pages/map_page.dart';
 import 'package:app/agent_page/agent_page.dart';
+import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +8,8 @@ class BottomNavigationBarExampleController extends GetxController {
   RxInt selectedIndex = 0.obs;
 
   List<Widget> pages = [
+    const MapPage(),
+    const WeaponPage(),
     const AgentPage(),
   ];
 
@@ -13,7 +17,7 @@ class BottomNavigationBarExampleController extends GetxController {
     selectedIndex.value = index;
     switch (index) {
       case 0:
-        Get.toNamed('/home_page');
+        Get.toNamed('/home');
         break;
       case 1:
         Get.toNamed('/agent_page');
@@ -59,7 +63,7 @@ class BottomNavigationBarExample extends StatelessWidget {
         ),
       ],
       currentIndex: controller.selectedIndex.value,
-      selectedItemColor: Colors.orange,
+      selectedItemColor: Color.fromARGB(255, 255, 70, 85),
       unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
       onTap: controller.onItemTapped,
     );

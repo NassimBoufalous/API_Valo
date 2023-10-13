@@ -11,23 +11,25 @@ class WeaponPage extends GetView<WeaponController> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        leading: Image.asset(
+          'assets/android_icon.png',
+          width: 40,
+        ),
         title: const Text(
           "Armes",
           style: TextStyle(
-            color: Colors.white, // Couleur du texte de la barre d'applications
+            color: Colors.white,
             fontSize: 24,
             fontFamily: 'Valorant',
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.black, // Fond noir de la barre d'applications
-        elevation: 0, // Supprimer l'ombre sous la barre d'applications
+        backgroundColor: Colors.black,
+        elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {
-              // Ajoutez une action de recherche
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -39,8 +41,7 @@ class WeaponPage extends GetView<WeaponController> {
             );
           } else {
             return Container(
-              color:
-                  const Color.fromARGB(255, 0, 0, 0), // Fond gris du conteneur
+              color: Color.fromARGB(255, 200, 200, 200),
               child: ListView.builder(
                 itemCount: controller.weapons.length,
                 itemBuilder: (context, index) {
