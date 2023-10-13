@@ -10,7 +10,28 @@ class MapPage extends GetView<MapController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Map')),
+        automaticallyImplyLeading: false,
+        leading: Image.asset(
+          'assets/android_icon.png',
+          width: 40,
+        ),
+        title: const Text(
+          'Cartes',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+            fontFamily: 'Valorant',
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: GetBuilder<MapController>(
         builder: (controller) {
@@ -23,10 +44,49 @@ class MapPage extends GetView<MapController> {
               itemCount: controller.maps.length,
               itemBuilder: (context, index) {
                 final map = controller.maps[index];
-                return ListTile(
-                  leading: Image.network(map.splash),
-                  title: Text(map.displayName),
-                  subtitle: Text(map.narrativeDescription),
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(8.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 3,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network(
+                          map.splash,
+                          height: 150,
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          map.displayName,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontFamily: 'Valorant',
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          map.narrativeDescription,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(221, 71, 71, 71),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
               },
             );

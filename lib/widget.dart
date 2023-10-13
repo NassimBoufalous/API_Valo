@@ -63,7 +63,7 @@ class BottomNavigationBarExample extends StatelessWidget {
         ),
       ],
       currentIndex: controller.selectedIndex.value,
-      selectedItemColor: Colors.orange,
+      selectedItemColor: Color.fromARGB(255, 255, 70, 85),
       unselectedItemColor: Color.fromARGB(215, 0, 0, 0),
       onTap: controller.onItemTapped,
     );

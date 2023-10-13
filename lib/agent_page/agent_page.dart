@@ -10,16 +10,30 @@ class AgentPage extends GetView<AgentController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Agents',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-              fontFamily: 'Valorant',
-            ),
+        automaticallyImplyLeading: false,
+        leading: Image.asset(
+          'assets/android_icon.png', 
+          width: 40, 
+        ),
+        title: const Text(
+          'Agents',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+            fontFamily: 'Valorant',
           ),
         ),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search, color: Colors.white),
+            onPressed: () {
+             
+            },
+          ),
+        ],
       ),
       body: GetBuilder<AgentController>(
         builder: (controller) {
@@ -32,24 +46,31 @@ class AgentPage extends GetView<AgentController> {
               itemCount: controller.agents.length,
               itemBuilder: (context, index) {
                 final agent = controller.agents[index];
-                return Card(
-                  elevation: 4, // Ajouter une ombre à la carte
-                  margin: const EdgeInsets.all(8), // Marge autour de la carte
-                  child: ListTile(
-                    leading: Image.network(
-                      agent.displayIcon,
-                      width: 80,
-                      height: 80,
-                    ),
-                    title: Text(
-                      agent.displayName,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Valorant',
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Card(
+                    elevation: 4,
+                    margin: const EdgeInsets.all(8),
+                    child: ListTile(
+                      leading: Image.network(
+                        agent.displayIcon,
+                        width: 80,
+                        height: 80,
+                      ),
+                      title: Text(
+                        agent.displayName,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontFamily: 'Valorant',
+                        ),
+                      ),
+                      subtitle: Text(
+                        agent.description,
+                        style: const TextStyle(fontSize: 16),
                       ),
                     ),
-                    subtitle: Text(agent.description),
                   ),
                 );
               },

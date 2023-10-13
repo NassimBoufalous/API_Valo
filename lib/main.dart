@@ -1,5 +1,3 @@
-import 'package:app/Pages/map_bindinds.dart';
-import 'package:app/Pages/map_page.dart';
 import 'package:app/agent_page/agent_bindings.dart';
 import 'package:app/agent_page/agent_page.dart';
 import 'package:app/home_page/home_page.dart';
@@ -7,6 +5,8 @@ import 'package:app/weapon_page/weapon_binding.dart';
 import 'package:app/weapon_page/weapon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:app/Pages/map_bindinds.dart';
+import 'package:app/Pages/map_page.dart';
 
 void main() {
   runApp(
