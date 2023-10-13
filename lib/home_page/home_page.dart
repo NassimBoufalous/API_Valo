@@ -6,8 +6,12 @@ class BottomNavigationBarExampleApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BottomNavigationBarExample(),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Center(child: Text('Valorant API')),
+      ),
+      bottomNavigationBar: BottomNavigationBarExample(),
     );
   }
 }
