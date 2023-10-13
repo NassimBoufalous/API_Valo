@@ -8,12 +8,12 @@ class MapController extends GetxController with StateMixin {
   @override
   void onInit() async {
     change(null, status: RxStatus.loading());
-    await _fetchAgentData();
+    await _fetchMapData();
     change(null, status: RxStatus.success());
     super.onInit();
   }
 
-  Future<void> _fetchAgentData() async {
+  Future<void> _fetchMapData() async {
     try {
       final dio = Dio();
       final response = await dio.get('https://valorant-api.com/v1/maps');

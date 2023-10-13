@@ -1,8 +1,6 @@
 import 'package:app/Pages/map_bindinds.dart';
 import 'package:app/Pages/map_page.dart';
 
-import 'package:app/home_page/home2_page.dart';
-import 'package:app/home_page/home_bindinds.dart';
 import 'package:app/home_page/home_page.dart';
 
 import 'package:app/weapon_page/weapon_binding.dart';
