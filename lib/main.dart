@@ -1,5 +1,7 @@
 import 'package:app/Pages/map_bindinds.dart';
 import 'package:app/Pages/map_page.dart';
+import 'package:app/agent_details/agent_bindings.dart';
+import 'package:app/agent_details/agent_details.dart';
 import 'package:app/agent_page/agent_bindings.dart';
 import 'package:app/agent_page/agent_page.dart';
 import 'package:app/home_page/home_page.dart';
@@ -27,6 +29,11 @@ void main() {
           name: '/map_page',
           page: () => const MapPage(),
           binding: MapBindings(),
+        ),
+        GetPage(
+          name: '/agent_details',
+          page: () => AgentDetails(),
+          binding: AgentDBindings(),
         ),
       ],
     ),

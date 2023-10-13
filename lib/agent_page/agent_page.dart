@@ -32,24 +32,32 @@ class AgentPage extends GetView<AgentController> {
               itemCount: controller.agents.length,
               itemBuilder: (context, index) {
                 final agent = controller.agents[index];
-                return Card(
-                  elevation: 4, // Ajouter une ombre à la carte
-                  margin: const EdgeInsets.all(8), // Marge autour de la carte
-                  child: ListTile(
-                    leading: Image.network(
-                      agent.displayIcon,
-                      width: 80,
-                      height: 80,
-                    ),
-                    title: Text(
-                      agent.displayName,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Valorant',
+                return InkWell(
+                  onTap: () {
+                    Get.toNamed(
+                      "/agent_details",
+                      arguments: {"agentName": agent.displayName},
+                    );
+                  },
+                  child: Card(
+                    elevation: 4, // Ajouter une ombre à la carte
+                    margin: const EdgeInsets.all(8), // Marge autour de la carte
+                    child: ListTile(
+                      leading: Image.network(
+                        agent.displayIcon,
+                        width: 80,
+                        height: 80,
                       ),
+                      title: Text(
+                        agent.displayName,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Valorant',
+                        ),
+                      ),
+                      subtitle: Text(agent.description),
                     ),
-                    subtitle: Text(agent.description),
                   ),
                 );
               },
